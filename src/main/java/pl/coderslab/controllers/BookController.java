@@ -44,28 +44,29 @@ public class BookController {
     }
 
     @PostMapping
-    public void addBook(@RequestBody Map<String, String> input) {
-        Book newBook = new Book(
-                input.get("isbn"),
-                input.get("title"),
-                input.get("author"),
-                input.get("publisher"),
-                input.get("type")
-        );
-        mockBookService.addBook(newBook);
+    public void addBook(@RequestBody Book book) {
+//        Book newBook = new Book(
+//                input.get("isbn"),
+//                input.get("title"),
+//                input.get("author"),
+//                input.get("publisher"),
+//                input.get("type")
+//        );
+        mockBookService.addBook(book);
     }
 
     @PutMapping
-    public void editBook(@RequestBody Map<String, String> input) {
-        Book editedBook = new Book(
-                Long.parseLong(input.get("id")),
-                input.get("isbn"),
-                input.get("title"),
-                input.get("author"),
-                input.get("publisher"),
-                input.get("type")
-        );
-        mockBookService.editBook(editedBook);
+    //public void editBook(@RequestBody Map<String, String> input) {
+    public void editBook(@RequestBody Book book) {
+//        Book editedBook = new Book(
+//                Long.parseLong(input.get("id")),
+//                input.get("isbn"),
+//                input.get("title"),
+//                input.get("author"),
+//                input.get("publisher"),
+//                input.get("type")
+//        );
+        mockBookService.editBook(book);
     }
 
     @DeleteMapping("/{id}")
